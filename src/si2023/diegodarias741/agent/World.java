@@ -18,11 +18,13 @@ public class World {
 		world = o;
 		grid = world.getObservationGrid();
 		rows = grid.length;
+		// System.out.println("rows: " + rows);
 		columns = grid[0].length;
-		map = new char[rows][columns]; //empty map
+		// System.out.println("columns: " + columns);
+		map = new char[rows][columns]; // empty map
 		block = world.getBlockSize();
 
-		//item lists
+		// item lists
 		movableList(world.getMovablePositions());
 		immovableList(world.getImmovablePositions());
 		portalList(world.getPortalsPositions());
@@ -40,28 +42,28 @@ public class World {
 				for (int j = 0; j < mlist[i].size(); j++) {
 
 					Item item = new Item(mlist[i].get(j));
-					//item.printItem();
+					// item.printItem();
 
-					//every movable item
+					// every movable item
 					/*					item.setName("???");
 										item.setSymbol('M');
 										movable.add(item);*/
 
-					//static person
+					// static person
 					if (item.itype == 16) {
 						item.setName("person");
 						item.setSymbol('T');
 						movable.add(item);
 					}
 
-					//falling person
+					// falling person
 					if (item.itype == 18) {
 						item.setName("falling");
 						item.setSymbol('T');
 						movable.add(item);
 					}
 
-					//bullets
+					// bullets
 					if (item.itype == 19) {
 						item.setName("bullet");
 						item.setSymbol('-');
@@ -82,35 +84,36 @@ public class World {
 				for (int j = 0; j < ilist[i].size(); j++) {
 
 					Item item = new Item(ilist[i].get(j));
-					//item.printItem();
+					// item.printItem();
 
-					//every immovable item
-					/*					item.setName("???");
-										item.setSymbol('I');
-										immovable.add(item);*/
+					// every immovable item
+					/*
+					 * item.setName("???"); item.setSymbol('I');
+					 * immovable.add(item);
+					 */
 
-					//death row
+					// death row
 					if (item.itype == 4) {
 						item.setName("death");
 						item.setSymbol('^');
 						immovable.add(item);
 					}
 
-					//walls
+					// walls
 					if (item.itype == 0) {
 						item.setName("wall");
 						item.setSymbol('W');
 						immovable.add(item);
 					}
 
-					//clouds
+					// clouds
 					if (item.itype == 3) {
 						item.setName("cloud");
 						item.setSymbol('O');
 						immovable.add(item);
 					}
 
-					//jail
+					// jail
 					if (item.itype == 6) {
 						item.setName("jail");
 						item.setSymbol('J');
@@ -132,9 +135,9 @@ public class World {
 				for (int j = 0; j < plist[i].size(); j++) {
 
 					Item item = new Item(plist[i].get(j));
-					//item.printItem();
+					// item.printItem();
 
-					//every portal
+					// every portal
 					item.setName("portal");
 					item.setSymbol('P');
 					portals.add(item);
@@ -154,14 +157,14 @@ public class World {
 				for (int j = 0; j < nlist[i].size(); j++) {
 
 					Item item = new Item(nlist[i].get(j));
-					//item.printItem();
+					// item.printItem();
 
-					//every NPC
-					/*					item.setName("???");
-										item.setSymbol('N');
-										npcs.add(item);*/
+					// every NPC
+					/*
+					 * item.setName("???"); item.setSymbol('N'); npcs.add(item);
+					 */
 
-					//villains
+					// villains
 					if (item.category == 3) {
 						item.setName("villain");
 						item.setSymbol('V');
@@ -176,7 +179,7 @@ public class World {
 
 	public void readMap() {
 
-		//blank map
+		// blank map
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
 
@@ -184,51 +187,51 @@ public class World {
 			}
 		}
 
-		//adds movable items
+		// adds movable items
 		if (movable != null) {
 			for (int i = 0; i < movable.size(); i++) {
 				Item item = movable.get(i);
-				//item.printItem();
+				// item.printItem();
 				int x = (int) item.xAxis / block;
 				int y = (int) item.yAxis / block;
 				map[x][y] = item.symbol;
 			}
 		}
 
-		//adds NPCs
+		// adds NPCs
 		if (npcs != null) {
 			for (int i = 0; i < npcs.size(); i++) {
 				Item item = npcs.get(i);
-				//item.printItem();
+				// item.printItem();
 				int x = (int) item.xAxis / block;
 				int y = (int) item.yAxis / block;
 				map[x][y] = item.symbol;
 			}
 		}
-		
-		//adds immovable items
+
+		// adds immovable items
 		if (immovable != null) {
 			for (int i = 0; i < immovable.size(); i++) {
 				Item item = immovable.get(i);
-				//item.printItem();
+				// item.printItem();
 				int x = (int) item.xAxis / block;
 				int y = (int) item.yAxis / block;
 				map[x][y] = item.symbol;
 			}
 		}
 
-		//adds portals
+		// adds portals
 		if (portals != null) {
 			for (int i = 0; i < portals.size(); i++) {
 				Item item = portals.get(i);
-				//item.printItem();
+				// item.printItem();
 				int x = (int) item.xAxis / block;
 				int y = (int) item.yAxis / block;
 				map[x][y] = item.symbol;
 			}
 		}
 
-		//adds hero
+		// adds hero
 		if (avatar != null) {
 			int x = (int) avatar.xAxis / block;
 			int y = (int) avatar.yAxis / block;
@@ -239,7 +242,7 @@ public class World {
 
 	public void printMap() {
 
-		//prints map row by row
+		// prints map row by row
 		String s = "\t";
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++) {
@@ -251,4 +254,15 @@ public class World {
 		}
 		System.out.println("-------------------------------------");
 	}
+
+	public char getSymbol(int i, int j) {
+		if (i < 0 || j < 0) {
+			return 'X';
+		}
+		if (i > columns - 1 || j > rows - 1) {
+			return 'X';
+		}
+		return map[j][i];
+	}
+
 }

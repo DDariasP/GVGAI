@@ -10,8 +10,10 @@ public class EmptyBag implements IAction {
 	public ACTIONS doAction(World w) {
 
 		Boolean flag = false;
-		int x = 0;
-		int y = 0;
+		int xCurrent = (int) w.avatar.xAxis / w.block;
+		int yCurrent = (int) w.avatar.yAxis / w.block;
+		int xGoal = 0;
+		int yGoal = 0;
 		if (w.immovable != null) {
 			int i = 0;
 			while (!flag && i < w.immovable.size()) {
@@ -20,32 +22,31 @@ public class EmptyBag implements IAction {
 
 				if (item.name == "jail") {
 					flag = true;
-					x = (int) item.xAxis / w.block;
-					y = (int) item.yAxis / w.block;
+					xGoal = (int) item.xAxis / w.block;
+					yGoal = (int) item.yAxis / w.block;
 				}
 				i++;
 			}
 		}
-
-		//high priority
-		if (w.avatar.yAxis > y) {
-			return ACTIONS.ACTION_UP;
-		}
-
-		if (w.avatar.xAxis > x) {
+		
+		if (xCurrent < xGoal) {
 			return ACTIONS.ACTION_RIGHT;
 		}
-
-		if (w.avatar.xAxis < x) {
+		
+		if (xCurrent > xGoal) {
 			return ACTIONS.ACTION_LEFT;
 		}
-
-		//low priority
-		if (w.avatar.yAxis < y) {
+		
+		if (yCurrent > yGoal) {
+			return ACTIONS.ACTION_UP;
+		}
+		
+		if (yCurrent < yGoal) {
 			return ACTIONS.ACTION_DOWN;
 		}
 
 		return ACTIONS.ACTION_NIL;
+
 	}
 
 }

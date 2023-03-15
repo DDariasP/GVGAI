@@ -32,6 +32,8 @@ public class L03_Agent2Rules extends AbstractPlayer {
 		ICondition cond1 = new FallingPerson();
 		ICondition cond2 = new FullBag();
 		ICondition cond3 = new FoundVillain();
+		ICondition cond5 = new NotFallingPerson();
+		ICondition cond6 = new FoundStatic();
 		
 		//condition lists
 		ArrayList<ICondition> listBottom = new ArrayList<ICondition>();
@@ -42,28 +44,34 @@ public class L03_Agent2Rules extends AbstractPlayer {
 		listFull.add(cond2);
 		ArrayList<ICondition> listFound = new ArrayList<ICondition>();
 		listFound.add(cond3);
+		ArrayList<ICondition> listNotSaved = new ArrayList<ICondition>();
+		listNotSaved.add(cond5);
+		listNotSaved.add(cond6);
 		
 		//actions
 		IAction acBottom = new LeaveSpawn();
 		IAction acFalling = new SavePerson();
 		IAction acFull = new EmptyBag();
 		IAction acFound = new CaptureVillain();
+		IAction acIdle = new StayIdle();
 		
 		//rules
 		Rule rBottom = new Rule(listBottom,acBottom,"rBottom");
 		Rule rFalling = new Rule(listFalling,acFalling,"rFalling");
 		Rule rFull = new Rule(listFull,acFull,"rFull");
 		Rule rFound = new Rule(listFound,acFound,"rFound");
+		Rule rNotSaved = new Rule(listNotSaved,acIdle,"rNotSaved");
 		
 		//rule list
 		ArrayList<Rule> rules = new ArrayList<Rule>();
 		rules.add(rBottom);
 		rules.add(rFalling);
+		//rules.add(rNotSaved); //saves everyone before capturing villains
 		rules.add(rFull);
 		rules.add(rFound);
 
 		//new brain & new engine
-		brain = new Brain(stateObs);
+		brain = new Brain();
 		engine = new Engine(rules);
 	}
 
@@ -72,7 +80,7 @@ public class L03_Agent2Rules extends AbstractPlayer {
 
 		brain.scanWorld(stateObs);
 		ACTIONS a = brain.think(engine);
-		System.out.println(a);
+		//System.out.println(a);
 		return a;
 	}
 }

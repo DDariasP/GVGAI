@@ -8,15 +8,11 @@ public class Brain {
 
 	private World w;
 
-	public Brain(StateObservation stateObs) {
-
-		w = new World(stateObs);
-	}
-
 	public void scanWorld(StateObservation so) {
 
 		w = new World(so);
 		w.readMap();
+		//w.printMap();
 
 	}
 
