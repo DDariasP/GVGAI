@@ -6,8 +6,8 @@ public class State4 extends State {
 	
 	public State4() {
 		
-		name = "foundVillain";
-		action = new CaptureVillain();
+		name = "fullBag";
+		action = new EmptyBag();
 		
 	}
 	

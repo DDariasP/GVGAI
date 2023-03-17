@@ -6,8 +6,8 @@ public class State2 extends State {
 	
 	public State2() {
 		
-		name = "fullBag";
-		action = new EmptyBag();
+		name = "fallingPerson";
+		action = new SavePerson();
 		
 	}
 	

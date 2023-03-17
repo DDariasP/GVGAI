@@ -8,7 +8,7 @@ import si2023.diegodarias741.p04.states.*;
 public class FSM89 extends FSM {
 
 	public FSM89() {
-		
+
 		State s1 = new State1();
 		State s2 = new State2();
 		State s3 = new State3();
@@ -19,35 +19,33 @@ public class FSM89 extends FSM {
 
 		//s1 - bottomRow
 		list = new LinkedList<>();
-		t = new Transition(new FallingPerson(), s3);
+		t = new Transition(new FallingPerson(), s2); //SavePerson
 		list.add(t);
-		t = new Transition(new FoundVillain(), s4);
+		t = new Transition(new FoundVillain(), s3); //CaptureVillain
 		list.add(t);
 		s1.setList(list);
-		
-		//s2 - fullBag
+
+		//s2 - fallingPerson
 		list = new LinkedList<>();
-		t = new Transition(new FullBag(), s2);
-		list.add(t);
-		t = new Transition(new BottomRow(), s1);
+		t = new Transition(new NotFallingPerson(), s3); //CaptureVillain
 		list.add(t);
 		s2.setList(list);
-		
-		//s3 - fallingPerson
+
+		//s3 - foundVillain
 		list = new LinkedList<>();
-		t = new Transition(new NotFallingPerson(), s4);
+		t = new Transition(new FullBag(), s4); //EmptyBag
 		list.add(t);
 		s3.setList(list);
-		
-		//s4 - foundVillain
+
+		//s4 - fullBag
 		list = new LinkedList<>();
-		t = new Transition(new FullBag(), s2);
+		t = new Transition(new BottomRow(), s1); //LeaveSpawn
 		list.add(t);
 		s4.setList(list);
-		
+
 		initialState = s1;
 		currentState = initialState;
-		
+
 	}
 
 }

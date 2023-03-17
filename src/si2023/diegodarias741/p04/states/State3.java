@@ -6,8 +6,8 @@ public class State3 extends State {
 	
 	public State3() {
 		
-		name = "fallingPerson";
-		action = new SavePerson();
+		name = "foundVillain";
+		action = new CaptureVillain();
 		
 	}
 	
