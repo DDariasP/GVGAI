@@ -3,7 +3,6 @@ package si2023.diegodarias741.p04.fsm;
 import java.util.ArrayList;
 import core.game.Observation;
 import core.game.StateObservation;
-import si2023.diegodarias741.p03.agent.World;
 
 public class World89 {
 
