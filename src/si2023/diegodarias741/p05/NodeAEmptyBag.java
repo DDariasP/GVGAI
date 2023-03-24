@@ -1,12 +1,15 @@
-package si2023.diegodarias741.p04.actions;
+package si2023.diegodarias741.p05;
 
 import ontology.Types.ACTIONS;
-import si2023.diegodarias741.p04.fsm.*;
 
-public class EmptyBag implements IAction {
+public class NodeAEmptyBag extends TreeNodeAction {
+
+	public NodeAEmptyBag(String n) {
+		super(n);
+	}
 
 	@Override
-	public ACTIONS doAction(World89 w) {
+	public ACTIONS doAction(AgentWorld89 w) {
 
 		Boolean flag = false;
 		int xCurrent = (int) w.avatar.xAxis / w.block;
@@ -17,12 +20,12 @@ public class EmptyBag implements IAction {
 			int i = 0;
 			while (!flag && i < w.immovable.size()) {
 
-				Item item = w.immovable.get(i);
+				AgentItem agentItem = w.immovable.get(i);
 
-				if (item.name == "jail") {
+				if (agentItem.name == "jail") {
 					flag = true;
-					xGoal = (int) item.xAxis / w.block;
-					yGoal = (int) item.yAxis / w.block;
+					xGoal = (int) agentItem.xAxis / w.block;
+					yGoal = (int) agentItem.yAxis / w.block;
 				}
 				i++;
 			}

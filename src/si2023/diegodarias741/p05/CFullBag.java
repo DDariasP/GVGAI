@@ -1,13 +1,13 @@
-package si2023.diegodarias741.p04.conditions;
+package si2023.diegodarias741.p05;
 
 import java.util.HashMap;
 
-import si2023.diegodarias741.p04.fsm.*;
 
-public class FullBag implements ICondition {
+
+public class CFullBag implements ICondition {
 
 	@Override
-	public Boolean isTrue(World89 w) {
+	public Boolean isTrue(AgentWorld89 w) {
 
 		HashMap<Integer, Integer> bag = w.world.getAvatarResources();
 		//System.out.println(bag.get(13));

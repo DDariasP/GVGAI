@@ -1,19 +1,19 @@
-package si2023.diegodarias741.p04.fsm;
+package si2023.diegodarias741.p05;
 
 import java.util.ArrayList;
 import core.game.Observation;
 import core.game.StateObservation;
 
-public class World89 {
+public class AgentWorld89 {
 
 	public StateObservation world;
 	public ArrayList<Observation>[][] grid;
 	public char[][] map;
-	public ArrayList<Item> movable, immovable, portals, npcs;
-	public Item avatar;
+	public ArrayList<AgentItem> movable, immovable, portals, npcs;
+	public AgentItem avatar;
 	public int rows, columns, block;
 
-	public World89(StateObservation o) {
+	public AgentWorld89(StateObservation o) {
 		
 		scanWorld(o);
 	}
@@ -34,7 +34,7 @@ public class World89 {
 		immovableList(world.getImmovablePositions());
 		portalList(world.getPortalsPositions());
 		npcList(world.getNPCPositions());
-		avatar = new Item("avatar", 'H', 0, world.getAvatarType(), world.getAvatarPosition());
+		avatar = new AgentItem("avatar", 'H', 0, world.getAvatarType(), world.getAvatarPosition());
 
 		readMap();
 
@@ -44,12 +44,12 @@ public class World89 {
 
 		if (mlist != null) {
 
-			movable = new ArrayList<Item>();
+			movable = new ArrayList<AgentItem>();
 
 			for (int i = 0; i < mlist.length; i++) {
 				for (int j = 0; j < mlist[i].size(); j++) {
 
-					Item item = new Item(mlist[i].get(j));
+					AgentItem agentItem = new AgentItem(mlist[i].get(j));
 					// item.printItem();
 
 					// every movable item
@@ -58,24 +58,24 @@ public class World89 {
 										movable.add(item);*/
 
 					// static person
-					if (item.itype == 16) {
-						item.setName("person");
-						item.setSymbol('T');
-						movable.add(item);
+					if (agentItem.itype == 16) {
+						agentItem.setName("person");
+						agentItem.setSymbol('T');
+						movable.add(agentItem);
 					}
 
 					// falling person
-					if (item.itype == 18) {
-						item.setName("falling");
-						item.setSymbol('T');
-						movable.add(item);
+					if (agentItem.itype == 18) {
+						agentItem.setName("falling");
+						agentItem.setSymbol('T');
+						movable.add(agentItem);
 					}
 
 					// bullets
-					if (item.itype == 19) {
-						item.setName("bullet");
-						item.setSymbol('-');
-						movable.add(item);
+					if (agentItem.itype == 19) {
+						agentItem.setName("bullet");
+						agentItem.setSymbol('-');
+						movable.add(agentItem);
 					}
 				}
 			}
@@ -86,12 +86,12 @@ public class World89 {
 
 		if (ilist != null) {
 
-			immovable = new ArrayList<Item>();
+			immovable = new ArrayList<AgentItem>();
 
 			for (int i = 0; i < ilist.length; i++) {
 				for (int j = 0; j < ilist[i].size(); j++) {
 
-					Item item = new Item(ilist[i].get(j));
+					AgentItem agentItem = new AgentItem(ilist[i].get(j));
 					// item.printItem();
 
 					// every immovable item
@@ -101,31 +101,31 @@ public class World89 {
 					 */
 
 					// death row
-					if (item.itype == 4) {
-						item.setName("death");
-						item.setSymbol('^');
-						immovable.add(item);
+					if (agentItem.itype == 4) {
+						agentItem.setName("death");
+						agentItem.setSymbol('^');
+						immovable.add(agentItem);
 					}
 
 					// walls
-					if (item.itype == 0) {
-						item.setName("wall");
-						item.setSymbol('W');
-						immovable.add(item);
+					if (agentItem.itype == 0) {
+						agentItem.setName("wall");
+						agentItem.setSymbol('W');
+						immovable.add(agentItem);
 					}
 
 					// clouds
-					if (item.itype == 3) {
-						item.setName("cloud");
-						item.setSymbol('O');
-						immovable.add(item);
+					if (agentItem.itype == 3) {
+						agentItem.setName("cloud");
+						agentItem.setSymbol('O');
+						immovable.add(agentItem);
 					}
 
 					// jail
-					if (item.itype == 6) {
-						item.setName("jail");
-						item.setSymbol('J');
-						immovable.add(item);
+					if (agentItem.itype == 6) {
+						agentItem.setName("jail");
+						agentItem.setSymbol('J');
+						immovable.add(agentItem);
 					}
 				}
 
@@ -137,18 +137,18 @@ public class World89 {
 
 		if (plist != null) {
 
-			portals = new ArrayList<Item>();
+			portals = new ArrayList<AgentItem>();
 
 			for (int i = 0; i < plist.length; i++) {
 				for (int j = 0; j < plist[i].size(); j++) {
 
-					Item item = new Item(plist[i].get(j));
+					AgentItem agentItem = new AgentItem(plist[i].get(j));
 					// item.printItem();
 
 					// every portal
-					item.setName("portal");
-					item.setSymbol('P');
-					portals.add(item);
+					agentItem.setName("portal");
+					agentItem.setSymbol('P');
+					portals.add(agentItem);
 				}
 			}
 
@@ -159,12 +159,12 @@ public class World89 {
 
 		if (nlist != null) {
 
-			npcs = new ArrayList<Item>();
+			npcs = new ArrayList<AgentItem>();
 
 			for (int i = 0; i < nlist.length; i++) {
 				for (int j = 0; j < nlist[i].size(); j++) {
 
-					Item item = new Item(nlist[i].get(j));
+					AgentItem agentItem = new AgentItem(nlist[i].get(j));
 					// item.printItem();
 
 					// every NPC
@@ -173,10 +173,10 @@ public class World89 {
 					 */
 
 					// villains
-					if (item.category == 3) {
-						item.setName("villain");
-						item.setSymbol('V');
-						npcs.add(item);
+					if (agentItem.category == 3) {
+						agentItem.setName("villain");
+						agentItem.setSymbol('V');
+						npcs.add(agentItem);
 					}
 
 				}
@@ -198,44 +198,44 @@ public class World89 {
 		// adds movable items
 		if (movable != null) {
 			for (int i = 0; i < movable.size(); i++) {
-				Item item = movable.get(i);
+				AgentItem agentItem = movable.get(i);
 				// item.printItem();
-				int x = (int) item.xAxis / block;
-				int y = (int) item.yAxis / block;
-				map[x][y] = item.symbol;
+				int x = (int) agentItem.xAxis / block;
+				int y = (int) agentItem.yAxis / block;
+				map[x][y] = agentItem.symbol;
 			}
 		}
 
 		// adds NPCs
 		if (npcs != null) {
 			for (int i = 0; i < npcs.size(); i++) {
-				Item item = npcs.get(i);
+				AgentItem agentItem = npcs.get(i);
 				// item.printItem();
-				int x = (int) item.xAxis / block;
-				int y = (int) item.yAxis / block;
-				map[x][y] = item.symbol;
+				int x = (int) agentItem.xAxis / block;
+				int y = (int) agentItem.yAxis / block;
+				map[x][y] = agentItem.symbol;
 			}
 		}
 
 		// adds immovable items
 		if (immovable != null) {
 			for (int i = 0; i < immovable.size(); i++) {
-				Item item = immovable.get(i);
+				AgentItem agentItem = immovable.get(i);
 				// item.printItem();
-				int x = (int) item.xAxis / block;
-				int y = (int) item.yAxis / block;
-				map[x][y] = item.symbol;
+				int x = (int) agentItem.xAxis / block;
+				int y = (int) agentItem.yAxis / block;
+				map[x][y] = agentItem.symbol;
 			}
 		}
 
 		// adds portals
 		if (portals != null) {
 			for (int i = 0; i < portals.size(); i++) {
-				Item item = portals.get(i);
+				AgentItem agentItem = portals.get(i);
 				// item.printItem();
-				int x = (int) item.xAxis / block;
-				int y = (int) item.yAxis / block;
-				map[x][y] = item.symbol;
+				int x = (int) agentItem.xAxis / block;
+				int y = (int) agentItem.yAxis / block;
+				map[x][y] = agentItem.symbol;
 			}
 		}
 

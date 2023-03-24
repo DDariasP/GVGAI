@@ -1,15 +1,15 @@
-package si2023.diegodarias741.p04;
+package si2023.diegodarias741.p05;
 
 import java.util.Random;
 
 import tools.Utils;
 import tracks.ArcadeMachine;
 
-public class Exe {
+public class AgentExe {
 
     public static void main(String[] args) {
 
-		String p0 = "si2023.diegodarias741.p04.AgentFSM";
+		String p0 = "si2023.diegodarias741.p05.AgentDecisionTree";
 		
 		//Load available games
 		String spGamesCollection =  "examples/all_games_sp.csv";

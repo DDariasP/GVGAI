@@ -1,9 +1,9 @@
-package si2023.diegodarias741.p04.fsm;
+package si2023.diegodarias741.p05;
 
 import core.game.Observation;
 import tools.Vector2d;
 
-public class Item {
+public class AgentItem {
 
 	public String name;
 	public char symbol;
@@ -12,7 +12,7 @@ public class Item {
 	public double xAxis;
 	public double yAxis;
 
-	public Item(String n, char s, int c, int t, Vector2d v) {
+	public AgentItem(String n, char s, int c, int t, Vector2d v) {
 		name = n;
 		symbol = s;
 		category = c;
@@ -21,7 +21,7 @@ public class Item {
 		yAxis = v.y;
 	}
 
-	public Item(Observation o) {
+	public AgentItem(Observation o) {
 		name = "???";
 		symbol = 'X';
 		category = o.category;

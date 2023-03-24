@@ -1,12 +1,15 @@
-package si2023.diegodarias741.p04.actions;
+package si2023.diegodarias741.p05;
 
 import ontology.Types.ACTIONS;
-import si2023.diegodarias741.p04.fsm.*;
 
-public class SavePerson implements IAction {
+public class NodeASavePerson extends TreeNodeAction {
+
+	public NodeASavePerson(String n) {
+		super(n);
+	}
 
 	@Override
-	public ACTIONS doAction(World89 w) {
+	public ACTIONS doAction(AgentWorld89 w) {
 
 		int distance = 999;
 		int xCurrent = (int) w.avatar.xAxis / w.block;
@@ -17,11 +20,11 @@ public class SavePerson implements IAction {
 		if (w.movable != null) {
 			for (int i = 0; i < w.movable.size(); i++) {
 
-				Item item = w.movable.get(i);
+				AgentItem agentItem = w.movable.get(i);
 
-				if (item.name == "falling") {
-					int x = (int) item.xAxis / w.block;
-					int y = (int) item.yAxis / w.block;
+				if (agentItem.name == "falling") {
+					int x = (int) agentItem.xAxis / w.block;
+					int y = (int) agentItem.yAxis / w.block;
 
 					// Manhattan distance
 					int d = Math.abs(xCurrent - x) + Math.abs(yCurrent - y);
