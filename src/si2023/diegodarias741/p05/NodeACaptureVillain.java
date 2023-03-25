@@ -44,19 +44,19 @@ public class NodeACaptureVillain extends TreeNodeAction {
 				System.out.println("yCurrent: " + yCurrent);
 				System.out.println("xGoal: " + xGoal);
 				System.out.println("yGoal: " + yGoal);*/
-		
+
 		if (xCurrent < xGoal) {
 			return ACTIONS.ACTION_RIGHT;
 		}
-		
+
 		if (xCurrent > xGoal) {
 			return ACTIONS.ACTION_LEFT;
 		}
-		
+
 		if (yCurrent > yGoal) {
 			return ACTIONS.ACTION_UP;
 		}
-		
+
 		if (yCurrent < yGoal) {
 			return ACTIONS.ACTION_DOWN;
 		}

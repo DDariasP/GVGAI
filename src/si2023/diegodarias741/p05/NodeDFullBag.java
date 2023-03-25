@@ -8,7 +8,7 @@ public class NodeDFullBag extends TreeNodeDecision {
 
 	@Override
 	public TreeNode getBranch(AgentWorld89 w) {
-		
+				
 		ICondition c = new CFullBag();
 
 		Boolean flag = c.isTrue(w);

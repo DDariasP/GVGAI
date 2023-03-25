@@ -21,7 +21,7 @@ public class AgentExe {
 				
 		// Game and level to play
 		int gameIdx  = 89;
-		int levelIdx = 2; // level names from 0 to 4 (game_lvlN.txt).
+		int levelIdx = 3; // level names from 0 to 4 (game_lvlN.txt).
 		
 		String gameName = games[gameIdx][1];
 		String game = games[gameIdx][0];

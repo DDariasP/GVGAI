@@ -14,18 +14,18 @@ public class AgentWorld89 {
 	public int rows, columns, block;
 
 	public AgentWorld89(StateObservation o) {
-		
+
 		scanWorld(o);
 	}
-	
+
 	public void scanWorld(StateObservation so) {
-		
+
 		world = so;
 		grid = world.getObservationGrid();
 		rows = grid.length;
-		// System.out.println("rows: " + rows);
+		//System.out.println("rows: " + rows);
 		columns = grid[0].length;
-		// System.out.println("columns: " + columns);
+		//System.out.println("columns: " + columns);
 		map = new char[rows][columns]; // empty map
 		block = world.getBlockSize();
 

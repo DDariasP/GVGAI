@@ -1,24 +1,23 @@
 package si2023.diegodarias741.p05;
 
-public class NodeDFallingPerson extends TreeNodeDecision {
+public class NodeDNotEveryoneSafe extends TreeNodeDecision {
 
-	public NodeDFallingPerson(String n) {
+	public NodeDNotEveryoneSafe(String n) {
 		super(n);
 	}
 
 	@Override
 	public TreeNode getBranch(AgentWorld89 w) {
-
-		ICondition c = new CFallingPerson();
+				
+		ICondition c = new CNotEveryoneSafe();
 
 		Boolean flag = c.isTrue(w);
-				
+		
 		if (flag) {
 			return yesNode;
 		} else {
 			return noNode;
 		}
-
 	}
 
 }

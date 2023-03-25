@@ -1,6 +1,5 @@
 package si2023.diegodarias741.p05;
 
-
 public class CBottomRow implements ICondition {
 
 	@Override
@@ -10,7 +9,7 @@ public class CBottomRow implements ICondition {
 		//System.out.println(yCurrent);
 
 		// true when hero @ bottom row
-		return (yCurrent == 12);
+		return (yCurrent == w.columns - 2);
 	}
 
 }

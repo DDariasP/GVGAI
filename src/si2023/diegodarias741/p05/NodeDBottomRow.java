@@ -8,11 +8,11 @@ public class NodeDBottomRow extends TreeNodeDecision {
 
 	@Override
 	public TreeNode getBranch(AgentWorld89 w) {
-		
+				
 		ICondition c = new CBottomRow();
 
 		Boolean flag = c.isTrue(w);
-
+		
 		if (flag) {
 			return yesNode;
 		} else {

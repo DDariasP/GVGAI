@@ -2,8 +2,6 @@ package si2023.diegodarias741.p05;
 
 import java.util.HashMap;
 
-
-
 public class CFullBag implements ICondition {
 
 	@Override

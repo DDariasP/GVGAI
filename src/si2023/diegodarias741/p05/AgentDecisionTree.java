@@ -14,14 +14,14 @@ import tools.ElapsedCpuTimer;
  * @author Diego
  */
 public class AgentDecisionTree extends AbstractPlayer {
-	
+
 	private IBrain brain;
 	private AgentWorld89 agentWorld89;
 
 	public AgentDecisionTree(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
-		
+
 		//new brain & new agentWorld89
-		brain = new Tree89();
+		brain = new Tree89v3();
 		agentWorld89 = new AgentWorld89(stateObs);
 	}
 

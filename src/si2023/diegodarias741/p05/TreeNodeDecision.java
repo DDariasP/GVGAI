@@ -11,7 +11,7 @@ public abstract class TreeNodeDecision extends TreeNode {
 	@Override
 	public TreeNode decide(AgentWorld89 w) {
 
-		return this.getBranch(w);
+		return this.getBranch(w).decide(w);
 	}
 
 }

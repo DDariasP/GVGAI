@@ -45,4 +45,10 @@ public class AgentItem {
 				+ ", xAxis: " + xAxis + ", yAxis: " + yAxis);
 	}
 
+	@Override
+	public String toString() {
+		return ("name: " + name + ", category: " + category + ", itype: " + itype + ", xAxis: " + xAxis + ", yAxis: "
+				+ yAxis);
+	}
+
 }

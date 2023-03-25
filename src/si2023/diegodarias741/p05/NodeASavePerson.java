@@ -43,15 +43,15 @@ public class NodeASavePerson extends TreeNodeAction {
 		if (xCurrent < xGoal) {
 			return ACTIONS.ACTION_RIGHT;
 		}
-		
+
 		if (xCurrent > xGoal) {
 			return ACTIONS.ACTION_LEFT;
 		}
-		
+
 		if (yCurrent > yGoal) {
 			return ACTIONS.ACTION_UP;
 		}
-		
+
 		if (yCurrent < yGoal) {
 			return ACTIONS.ACTION_DOWN;
 		}

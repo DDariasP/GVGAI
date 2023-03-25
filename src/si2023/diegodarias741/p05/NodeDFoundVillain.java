@@ -8,7 +8,7 @@ public class NodeDFoundVillain extends TreeNodeDecision {
 
 	@Override
 	public TreeNode getBranch(AgentWorld89 w) {
-		
+				
 		ICondition c = new CFoundVillain();
 
 		Boolean flag = c.isTrue(w);
