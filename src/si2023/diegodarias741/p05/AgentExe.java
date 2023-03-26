@@ -17,7 +17,8 @@ public class AgentExe {
 
 		//Game settings
 		boolean visuals = true;
-		int seed = new Random().nextInt();
+		Random r = new Random(System.currentTimeMillis());
+		int seed = r.nextInt();
 				
 		// Game and level to play
 		int gameIdx  = 89;
@@ -33,9 +34,9 @@ public class AgentExe {
 
 		// 2. This plays a game in a level by the controller.
 		ArcadeMachine.runOneGame(game, level1, visuals, p0, null, seed, 0);
-				
 
 		System.exit(0);
 
     }
+    
 }
