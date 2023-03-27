@@ -5,7 +5,7 @@ public class CVillainLTX implements ICondition {
 	@Override
 	public Boolean isTrue(AgentWorld89 w) {
 
-		int X = 8;
+		int X = 6;
 		int count = 0;
 		Boolean flag = true;
 		if (w.npcs != null) {

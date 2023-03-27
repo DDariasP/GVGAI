@@ -25,7 +25,7 @@ public class AgentCalculatorExe {
 
 		// Game and level to play
 		int gameIdx = 89;
-		int levelIdx = 3; // level names from 0 to 4 (game_lvlN.txt).
+		int levelIdx = 4; // level names from 0 to 4 (game_lvlN.txt).
 
 		String gameName = games[gameIdx][1];
 		String game = games[gameIdx][0];
@@ -36,11 +36,9 @@ public class AgentCalculatorExe {
 			seed = r.nextInt();
 			double[] results = ArcadeMachine.runOneGame(game, level1, visuals, p0, null, seed, 0);
 
-			System.out.println(results[0]); //win
-			System.out.println(results[1]); //score
-			System.out.println(results[2]); //ticks
+			System.out.println(i);
 
-			write(results, "v3-8.txt");
+			write(results, "v3-6.txt");
 		}
 		
 		System.out.println("\nDone.");

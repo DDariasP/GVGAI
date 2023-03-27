@@ -21,7 +21,7 @@ public class AgentDecisionTree extends AbstractPlayer {
 	public AgentDecisionTree(StateObservation stateObs, ElapsedCpuTimer elapsedTimer) {
 
 		//new brain & new agentWorld89
-		brain = new Tree89v1();
+		brain = new Tree89v3();
 		agentWorld89 = new AgentWorld89(stateObs);
 	}
 
