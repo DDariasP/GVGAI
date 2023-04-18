@@ -26,7 +26,7 @@ public class Brain implements IBrain {
 	@Override
 	public ACTIONS think(AgentWorld50 w) {
 		// TODO Auto-generated method stub
-		return null;
+		return ACTIONS.ACTION_NIL;
 	}
 
 }

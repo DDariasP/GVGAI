@@ -23,9 +23,9 @@ public class AgentWorld50 {
 		world = so;
 		grid = world.getObservationGrid();
 		rows = grid.length;
-		//System.out.println("rows: " + rows);
+		//System.out.println("height: " + height);
 		columns = grid[0].length;
-		//System.out.println("columns: " + columns);
+		//System.out.println("width: " + width);
 		map = new char[rows][columns]; // empty map
 		block = world.getBlockSize();
 
